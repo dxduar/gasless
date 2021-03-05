@@ -12,9 +12,9 @@ export const handleConnectToWallet = async ({ setAddress, setMainETHAddress, set
     }
     const ethAddress = await ethAPI.getAddress()
     const gaslessAddress = await ethAPI.getGaslessWalletAddress(0)
-    setAddress(gaslessAddress)
+    setAddress(ethAddress)
     setMainETHAddress(ethAddress)
-    const txs = await ethAPI.getTransactionCount(gaslessAddress)
+    const txs = await ethAPI.getTransactionCount(ethAddress)
     setTxs(txs)
     setIsOpen(false)
 }
